@@ -10,28 +10,40 @@
     </script>
 </head>
 <body>
-    <form id="destination_form" onsubmit="gothere(); return false;" method="get">
-        <select id="start">
-            {% for item in info.cities %}
-                <option>{{ item }}</option>
-            {% endfor %}
-        </select>
-        <select id="end">
-            {% for item in info.cities %}
-                <option>{{ item }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Find Payoff"></input>
-    </form>
-    {% if info.payoff %}
-        <div class="payoff_value">
-            <h2>Start</h2>
-            <p>{{info.start}}</p>
-            <h2>End</h2>
-            <p>{{info.end}}</p>
-            <h2>Payoff</h2>
-            <p>{{info.payoff}}</p>
-        </div>
-    {% endif %}
+    <div>
+        <form id="destination_form" onsubmit="gothere(); return false;" method="get">
+            <div>
+                <label for="start">Start</label>
+                <select id="start">
+                    {% for item in info.cities %}
+                        <option>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="end">Destination</label>
+                <select id="end">
+                    {% for item in info.cities %}
+                        <option>{{ item }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Find Payoff"></input>
+            </div>
+        </form>
+    </div>
+    <div>
+        {% if info.payoff %}
+            <div class="payoff_value">
+                <h2>Start</h2>
+                <p>{{info.start}}</p>
+                <h2>End</h2>
+                <p>{{info.end}}</p>
+                <h2>Payoff</h2>
+                <p>{{info.payoff}}</p>
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
