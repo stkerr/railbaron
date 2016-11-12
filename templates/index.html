@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railbaron App</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        function gothere(){
+            window.location.href = "/" + $("#start").val() + "/" + $("#end").val();
+        }
+    </script>
+</head>
+<body>
+    <form id="destination_form" onsubmit="gothere(); return false;" method="get">
+        <select id="start">
+            {% for item in info.cities %}
+                <option>{{ item }}</option>
+            {% endfor %}
+        </select>
+        <select id="end">
+            {% for item in info.cities %}
+                <option>{{ item }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Find Payoff"></input>
+    </form>
+    <div class="payoff_value">
+        <h2>Start</h2>
+        <p>{{info.start}}</p>
+        <h2>End</h2>
+        <p>{{info.end}}</p>
+        <h2>Payoff</h2>
+        <p>{{info.payoff}}</p>
+    </div>
+</body>
+</html>
