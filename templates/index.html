@@ -23,13 +23,15 @@
         </select>
         <input type="submit" value="Find Payoff"></input>
     </form>
-    <div class="payoff_value">
-        <h2>Start</h2>
-        <p>{{info.start}}</p>
-        <h2>End</h2>
-        <p>{{info.end}}</p>
-        <h2>Payoff</h2>
-        <p>{{info.payoff}}</p>
-    </div>
+    {% if info.payoff %}
+        <div class="payoff_value">
+            <h2>Start</h2>
+            <p>{{info.start}}</p>
+            <h2>End</h2>
+            <p>{{info.end}}</p>
+            <h2>Payoff</h2>
+            <p>{{info.payoff}}</p>
+        </div>
+    {% endif %}
 </body>
 </html>
